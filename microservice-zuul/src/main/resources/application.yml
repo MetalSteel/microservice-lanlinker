@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: microservice-zuul
+server:
+  port: 8040
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:root@eureka-master:8761/eureka
+  instance:
+    prefer-ip-address: true
+zuul:
+  # 自定义配置路由名称
+  routes:
+    student-provider:
+      path: /student/**
+      serviceId: microservice-student-provider
+    file-provider:
+      path: /file/**
+      serviceId: microservice-file-provider
+  ignored-services: microservice-consumer
+# 配置hystrix的超时时间和ribbon的超时时间,防止上传大文件的时候出现超时
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 60000
+ribbon:
+  ConnectTimeout: 3000
+  ReadTimeout: 60000

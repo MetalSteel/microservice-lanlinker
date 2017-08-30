@@ -1,0 +1,22 @@
+server:
+  port: 7902
+spring:
+  #MySQL≈‰÷√
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/student-demo
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+  #JPA≈‰÷√
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  application:
+    name: microservice-student-provider
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:root@eureka-master:8761/eureka
+  instance:
+    prefer-ip-address: true

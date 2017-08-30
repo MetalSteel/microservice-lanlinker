@@ -1,0 +1,15 @@
+server:
+  port: 8050
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:root@eureka-master:8761/eureka
+  instance:
+    prefer-ip-address: true
+spring:
+  application:
+    name: microservice-file-provider
+  http:
+    multipart:
+      max-file-size: 2000Mb # Max file size£¬Ä¬ÈÏ1M
+      max-request-size: 2500Mb # Max request size£¬Ä¬ÈÏ10M

@@ -1,0 +1,17 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: microservice-consumer
+eureka:
+  client:
+    service-url:
+      defaultZone: http://root:root@eureka-master:8761/eureka
+  instance:
+    prefer-ip-address: true
+logging:
+  level:
+    com.lanlinker.cloud.feign.StudentFeign: DEBUG
+feign:
+  hystrix:
+    enabled: true
